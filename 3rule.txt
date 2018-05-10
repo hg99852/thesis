@@ -1,0 +1,3 @@
+iptables -A INPUT -i eth0 -p tcp -s 128.0.0.0/1 -d 128.0.0.0/2 -j ACCEPT
+iptables -A INPUT -i eth0 -p tcp -s 192.0.0.0/2 -d 128.0.0.0/1 -j DROP
+iptables -A INPUT -i eth0 -p tcp -s 0.0.0.0/0 -d 0.0.0.0/0 -j DROP

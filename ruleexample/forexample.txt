@@ -1,0 +1,11 @@
+iptables -A -p INPUT -s tcp -d 1.64.0.0/10 --tcp-flags SYN,ACK,FIN,RST 2.128.0.0/9 -j ANY
+iptables -A -p INPUT -s tcp -d 1.128.0.0/9 --tcp-flags SYN,ACK,FIN,RST 2.0.0.0/8 -j ANY
+iptables -A -p INPUT -s tcp -d 1.0.0.0/8 --tcp-flags SYN,ACK,FIN,RST 2.192.0.0/10 -j ANY
+iptables -A -p OUTPUT -s tcp -d 2.128.0.0/10 --tcp-flags SYN,ACK,FIN,RST 1.128.0.0/10 -j ANY
+iptables -A -p OUTPUT -s tcp -d 2.0.0.0/8 --tcp-flags SYN,ACK,FIN,RST 1.0.0.0/9 -j ANY
+iptables -A -p OUTPUT -s tcp -d 2.0.0.0/9 --tcp-flags SYN,ACK,FIN,RST 1.0.0.0/8 -j ANY
+iptables -A -p INPUT -s tcp -d 2.0.0.0/9 --tcp-flags SYN,ACK,FIN,RST 1.128.0.0/10 -j ANY
+iptables -A -p INPUT -s tcp -d 2.64.0.0/10 --tcp-flags SYN,ACK,FIN,RST 1.0.0.0/8 -j ANY
+iptables -A -p INPUT -s tcp -d 2.0.0.0/8 --tcp-flags SYN,ACK,FIN,RST 1.64.0.0/10 -j ANY
+iptables -A -p INPUT -s tcp -d 2.0.0.0/8 --tcp-flags SYN,ACK,FIN,RST 1.192.0.0/10 -j ANY
+iptables -A -p OUTPUT -s tcp -d 1.0.0.0/8 --tcp-flags SYN,ACK,FIN,RST 2.0.0.0/8 -j ANY
